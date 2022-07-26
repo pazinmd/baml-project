@@ -1,7 +1,8 @@
 .card__info-name {
   margin: 0;
   padding: 0;
-  padding-right: 20px;
+  /* padding-right: 20px; */
+  max-width: 90%;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;

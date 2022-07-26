@@ -13,7 +13,7 @@
 }
 
 .popup__save-button:hover {
-  opacity: .7;
+  opacity: .8;
   cursor: pointer;
 }
 
@@ -23,5 +23,6 @@
     height: 46px;
     font-size: 14px;
     line-height: 17px;
+    margin-bottom: 20px;
   }
 }
