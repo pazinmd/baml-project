@@ -1,0 +1,12 @@
+.card__info {
+  min-height: 79px;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 25px 18px 25px 20px;
+  margin: 0;
+  border-radius: 0 0 10px 10px;
+  align-items: center;
+  background-color: #fff;
+  color: #000;
+}
