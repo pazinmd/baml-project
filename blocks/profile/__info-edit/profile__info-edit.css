@@ -1,13 +1,14 @@
 .profile__info-edit {
-  margin: 0;
-  padding: 0;
-  background: url('../../../images/Edit\ Button.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
   width: 24px;
   height: 24px;
-  border: 0;
-  margin: 15px 0 0 18px;
+  background: url('../../../images/buttons/edit-button.svg');
+  background-repeat: no-repeat;
+  background-size: 10px;
+  background-position: center;
+  margin: 19px 0 0 19px;
+  padding: 0;
+  border: 1px solid #fff;
+  box-sizing: border-box;
   transition: opacity .4s ease-in;
 }
 
@@ -19,8 +20,8 @@
 @media screen and (max-width: 768px) {
   .profile__info-edit {
     width: 18px;
-  height: 18px;
-  margin: 10px 0 0 10px;
+    height: 18px;
+    margin: 10px 0 0 10px;
   }
-  
+
 }

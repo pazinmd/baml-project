@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="./pages/index.css">
   <title>Mesto app</title>
 </head>
+
 <body class="page">
 
   <header class="header">
@@ -15,7 +17,7 @@
 
   <main class="main-content">
     <section class="profile">
-      <img class="profile__avatar" src="./images/image.jpg" alt="Аватар пользователя">
+      <img class="profile__avatar" src="./images/profile-photos/Zhak-photo.png" alt="Аватар пользователя">
       <div class="profile__info">
         <h1 class="profile__info-name">Жак-Ив Кусто</h1>
         <button class="profile__info-edit"></button>
@@ -24,9 +26,23 @@
       <button class="profile__add-picture"></button>
     </section>
 
+    <div class="popup ">
+      <!-- popup_opened -->
+      <div class="popup__container">
+        <form class="popup__form">
+          <h2 class="popup__name">Редактировать профиль</h2>
+          <button class="popup__close-button"></button>
+          <input placeholder="Жак-Ив Кусто" class="popup__input" type="text" name="username">
+          <input placeholder="Исследователь океана" class="popup__input" type="text" name="caption">
+          <button class="popup__save-button" type="submit">Сохранить</button>
+        </form>
+
+      </div>
+    </div>
+
     <section class="cards">
       <div class="card">
-        <img class="card__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="">
+        <img class="card__image" src="./images/cards/Karachaevo.png" alt="Изображение Карачаевска">
         <div class="card__info">
           <h2 class="card__info-name">Карачаевск</h2>
           <button class="card__info-like"></button>
@@ -34,41 +50,41 @@
       </div>
 
       <div class="card">
-        <img class="card__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="">
+        <img class="card__image" src="./images/cards/Elbrus.png" alt="Изображение Эльбруса">
         <div class="card__info">
-          <h2 class="card__info-name">Карачаевск</h2>
+          <h2 class="card__info-name">Гора Эльбрус</h2>
           <button class="card__info-like"></button>
         </div>
       </div>
 
       <div class="card">
-        <img class="card__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="">
+        <img class="card__image" src="./images/cards/Dombai.png" alt="Изображение Домбая">
         <div class="card__info">
-          <h2 class="card__info-name">Карачаевск</h2>
+          <h2 class="card__info-name">Домбай</h2>
           <button class="card__info-like"></button>
         </div>
       </div>
 
       <div class="card">
-        <img class="card__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="">
+        <img class="card__image" src="./images/cards/kosa.png" alt="Изображение Куршской косы">
         <div class="card__info">
-          <h2 class="card__info-name">Карачаевск</h2>
+          <h2 class="card__info-name">Куршская коса</h2>
           <button class="card__info-like"></button>
         </div>
       </div>
 
       <div class="card">
-        <img class="card__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="">
+        <img class="card__image" src="./images/cards/petropavlovsk.png" alt="Изображение Петропавловска">
         <div class="card__info">
-          <h2 class="card__info-name">Карачаевск</h2>
+          <h2 class="card__info-name">Петропавловск-Камчатский</h2>
           <button class="card__info-like"></button>
         </div>
       </div>
 
       <div class="card">
-        <img class="card__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="">
+        <img class="card__image" src="./images/cards/zubia.png" alt=" Изображение Поднебесных Зубьев">
         <div class="card__info">
-          <h2 class="card__info-name">Карачаевск</h2>
+          <h2 class="card__info-name">Поднебесные зубья</h2>
           <button class="card__info-like"></button>
         </div>
       </div>
@@ -78,4 +94,5 @@
     <p class="footer__caption">&copy; 2022 Mesto Russia</p>
   </footer>
 </body>
+
 </html>
