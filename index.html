@@ -26,15 +26,29 @@
       <button type="button" class="profile__add-picture"></button>
     </section>
 
-    <div class="popup ">
-      <!-- popup_opened -->
+    <div class="popup popup__profile-edit">
+      <!-- profile edit popup -->
       <div class="popup__container">
         <form class="popup__form" name="profile-edit">
           <h2 class="popup__name">Редактировать профиль</h2>
-          <button type="button" class="popup__close-button"></button>
-          <input placeholder="Жак-Ив Кусто" class="popup__input" type="text" name="username">
-          <input placeholder="Исследователь океана" class="popup__input" type="text" name="caption">
+          <button type="button" class="popup__close-button popup__close-button-profile"></button>
+          <input placeholder="Жак-Ив Кусто" class="popup__input popup__input_data-name" type="text" name="username">
+          <input placeholder="Исследователь океана" class="popup__input popup__input_data-caption" type="text" name="caption">
           <button class="popup__save-button" type="submit">Сохранить</button>
+        </form>
+
+      </div>
+    </div>
+
+    <div class="popup popup__add-place">
+      <!-- add place popup -->
+      <div class="popup__container">
+        <form class="popup__form" name="cards-add">
+          <h2 class="popup__name">Новое место</h2>
+          <button type="button" class="popup__close-button popup__close-cards-add-button"></button>
+          <input placeholder="Название" class="popup__input popup__input_place-name" type="text" name="placeName">
+          <input placeholder="Ссылка на картинку" class="popup__input popup__input_place-link" type="text" name="imageLink">
+          <button class="popup__save-button" type="submit">Создать</button>
         </form>
 
       </div>
@@ -43,6 +57,7 @@
     <section class="cards">
       <article class="card">
         <img class="card__image" src="./images/cards/Karachaevo.png" alt="Изображение Карачаевска">
+        <button class="card__close-button" type="button"></button>
         <div class="card__info">
           <h2 class="card__info-name">Карачаевск</h2>
           <button class="card__info-like" type="button" aria-label="Like"></button>
@@ -51,6 +66,7 @@
 
       <article class="card">
         <img class="card__image" src="./images/cards/Elbrus.png" alt="Изображение Эльбруса">
+        <button class="card__close-button" type="button"></button>
         <div class="card__info">
           <h2 class="card__info-name">Гора Эльбрус</h2>
           <button class="card__info-like" type="button" aria-label="Like"></button>
@@ -59,6 +75,7 @@
 
       <article class="card">
         <img class="card__image" src="./images/cards/Dombai.png" alt="Изображение Домбая">
+        <button class="card__close-button" type="button"></button>
         <div class="card__info">
           <h2 class="card__info-name">Домбай</h2>
           <button class="card__info-like" type="button" aria-label="Like"></button>
@@ -67,6 +84,7 @@
 
       <article class="card">
         <img class="card__image" src="./images/cards/kosa.png" alt="Изображение Куршской косы">
+        <button class="card__close-button" type="button"></button>
         <div class="card__info">
           <h2 class="card__info-name">Куршская коса</h2>
           <button class="card__info-like" type="button" aria-label="Like"></button>
@@ -75,6 +93,7 @@
 
       <article class="card">
         <img class="card__image" src="./images/cards/petropavlovsk.png" alt="Изображение Петропавловска">
+        <button class="card__close-button" type="button"></button>
         <div class="card__info">
           <h2 class="card__info-name">Петропавловск-Камчатский</h2>
           <button class="card__info-like" type="button" aria-label="Like"></button>
@@ -83,6 +102,7 @@
 
       <article class="card">
         <img class="card__image" src="./images/cards/zubia.png" alt=" Изображение Поднебесных Зубьев">
+        <button class="card__close-button" type="button"></button>
         <div class="card__info">
           <h2 class="card__info-name">Поднебесные зубья</h2>
           <button class="card__info-like" type="button" aria-label="Like"></button>
@@ -94,6 +114,9 @@
   <footer class="footer">
     <p class="footer__caption">&copy; 2022 Mesto Russia</p>
   </footer>
+
+  <script type="text/javascript" src="./script.js"></script>
+
 </body>
 
 </html>

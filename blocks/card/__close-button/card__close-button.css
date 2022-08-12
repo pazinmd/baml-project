@@ -1,0 +1,24 @@
+.card__close-button {
+  background: url('../../../images/buttons/close-card.svg') center no-repeat;
+  background-color: transparent;
+  width: 18px;
+  height: 20px;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  border: none;
+  display: none;
+  transition: opacity .4s ease-in;
+}
+
+
+.card:hover .card__close-button {
+  display: block;
+}
+
+
+
+.card__close-button:hover {
+  cursor: pointer;
+  opacity: .5;
+}
