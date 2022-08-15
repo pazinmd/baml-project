@@ -1,8 +1,12 @@
 console.log("Всё сработало!");
 // начало работы с формой по редактированию имени и подписи
-let profileInfoEditButton = document.querySelector(".profile__info-edit");
-let profileInfoCloseButton = document.querySelector( ".popup__close-button-profile");
+const profileInfoEditButton = document.querySelector(".profile__info-edit");
+const profileInfoCloseButton = document.querySelector(
+  ".popup__close-button-profile"
+);
 let popupProfileEdit = document.querySelector(".popup__profile-edit");
+let inputCaption = document.querySelector(".popup__input_data-caption");
+let inputName = document.querySelector(".popup__input_data-name");
 
 function popupProfileCloseClick() {
   popupProfileEdit.style.visibility = "hidden";
@@ -10,8 +14,6 @@ function popupProfileCloseClick() {
 }
 
 function popupProfileEditClick() {
-  let inputCaption = document.querySelector(".popup__input_data-caption");
-  let inputName = document.querySelector(".popup__input_data-name");
   popupProfileEdit.style.visibility = "visible";
   popupProfileEdit.style.opacity = "1";
   inputName.value = document.querySelector(".profile__info-name").textContent;
@@ -27,16 +29,15 @@ profileInfoCloseButton.addEventListener("click", popupProfileCloseClick);
 
 // начало работы с формой по редактированию имени и подписи
 
-let addPlaceAddButton = document.querySelector(".profile__add-picture");
-let addPlaceCloseButton = document.querySelector( ".popup__close-cards-add-button");
+const addPlaceAddButton = document.querySelector(".profile__add-picture");
+const addPlaceCloseButton = document.querySelector(
+  ".popup__close-cards-add-button"
+);
 let popupAddPlace = document.querySelector(".popup__add-place");
-
-
 
 function popupAddPlaceClick() {
   popupAddPlace.style.visibility = "visible";
   popupAddPlace.style.opacity = "1";
-
 }
 
 function popupAddPlaceCloseClick() {
@@ -44,8 +45,19 @@ function popupAddPlaceCloseClick() {
   popupAddPlace.style.opacity = "0";
 }
 
-addPlaceAddButton.addEventListener('click',popupAddPlaceClick );
-addPlaceCloseButton.addEventListener('click',popupAddPlaceCloseClick )
+addPlaceAddButton.addEventListener("click", popupAddPlaceClick);
+addPlaceCloseButton.addEventListener("click", popupAddPlaceCloseClick);
+
+// Удаляем карточки
+
+function delHandler(event) {
+  const placesList = document.querySelector("section.cards");
+  placesList.removeChild(event.target.parentNode);
+  event.stopPropagation();
+}
+
+document.querySelectorAll(".card__close-button").forEach((item) => {
+  item.addEventListener("click", delHandler);
+});
 
 
-const formElement = document.querySelector('.popup__form').getAttribute('')
