@@ -1,4 +1,4 @@
-.card__close-button {
+.card__delete-button {
   background: url('../../../images/buttons/close-card.svg') center no-repeat;
   background-color: transparent;
   width: 18px;
@@ -12,13 +12,13 @@
 }
 
 
-.card:hover .card__close-button {
+.card:hover .card__delete-button {
   display: block;
 }
 
 
 
-.card__close-button:hover {
+.card__delete-button:hover {
   cursor: pointer;
   opacity: .5;
 }

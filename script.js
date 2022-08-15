@@ -56,7 +56,7 @@ function delHandler(event) {
   event.stopPropagation();
 }
 
-document.querySelectorAll(".card__close-button").forEach((item) => {
+document.querySelectorAll(".card__delete-button").forEach((item) => {
   item.addEventListener("click", delHandler);
 });
 
