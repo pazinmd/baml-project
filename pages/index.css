@@ -33,6 +33,7 @@
 @import url('../blocks/card/__info/card__info.css');
 @import url('../blocks/card/__info-name/card__info-name.css');
 @import url('../blocks/card/__info-like/card__info-like.css');
+@import url('../blocks/card/__info-like/card__info-like_liked/card__info-like_liked.css');
 
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__caption/footer__caption.css');

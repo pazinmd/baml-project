@@ -60,4 +60,11 @@ document.querySelectorAll(".card__delete-button").forEach((item) => {
   item.addEventListener("click", delHandler);
 });
 
+// добавляем лайки
+function likesHandler(event) {
+  event.target.classList.toggle('card__info-like_liked');
+  event.stopPropagation();}
 
+document.querySelectorAll(".card__info-like").forEach((item) => {
+  item.addEventListener("click", likesHandler);
+});

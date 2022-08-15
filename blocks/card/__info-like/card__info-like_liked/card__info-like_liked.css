@@ -1,0 +1,7 @@
+.card__info-like_liked {
+  background-image: url('../../../../images/buttons/like-button-active.svg');
+}
+
+.card__info-like_liked:hover {
+  transform: scale(1.05);
+}
