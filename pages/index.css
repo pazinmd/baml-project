@@ -19,11 +19,20 @@
 @import url('../blocks/popup/__add-place/popup__add-place.css');
 @import url('../blocks/popup/_opened/popup_opened.css');
 @import url('../blocks/popup/__container/popup__container.css');
+@import url('../blocks/popup/popup__open-picture-container/popup__open-picture-container.css');
+@import url('../blocks/popup/__image/popup__image.css');
 @import url('../blocks/popup/__form/popup__form.css');
 @import url('../blocks/popup/__name/popup__title.css');
 @import url('../blocks/popup/__input/popup__input.css');
 @import url('../blocks/popup/__save-button/popup__save-button.css');
 @import url('../blocks/popup/__close-button/popup__close-button.css');
+
+
+@import url('../blocks/popup-image/popup-image.css');
+@import url('../blocks/popup-image/__container/popup-image__container.css');
+@import url('../blocks/popup-image/__picture/popup-image__picture.css');
+@import url('../blocks/popup-image/_is-opened/popup-image_is-opened.css');
+@import url('../blocks/popup-image/__caption/popup-image__caption.css');
 
 @import url('../blocks/cards/cards.css');
 
