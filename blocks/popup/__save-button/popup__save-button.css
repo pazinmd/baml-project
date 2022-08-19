@@ -10,6 +10,9 @@
   line-height: 22px;
   font-weight: 400;
   transition: .2s;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
 
 .popup__save-button:hover {
