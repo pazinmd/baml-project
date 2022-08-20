@@ -33,8 +33,8 @@ const popupImage = document.querySelector('.popup-image');
 const popupImageCloseButton = popupImage.querySelector('.popup-image__close-button');
 const popupImageCaption = popupImage.querySelector('.popup-image__caption');
 const popupImagePicture = popupImage.querySelector('.popup-image__picture');
-const formAddPlace = document.querySelector('.popup__form[name="cards-add"]');
 const popupAddPlace = document.querySelector('.popup[title="add-place"]');
+const formAddPlace = document.querySelector('.popup__form[name="cards-add"]');
 const card = document.querySelectorAll('.card')
 
 // Пишем функцию по открытию карточки в режиме просмотра
