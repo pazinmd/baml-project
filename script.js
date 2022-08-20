@@ -1,5 +1,3 @@
-console.log("Всё сработало!");
-
 const initialCards = [
   {
     name: 'Архыз',
@@ -30,10 +28,39 @@ const initialCards = [
 
 
 
+//// 1. Работаем с попапом открытия карточки
+const popupImage = document.querySelector('.popup-image');
+const popupImageCloseButton = popupImage.querySelector('.popup__close-button');
+const popupImageCaption = popupImage.querySelector('.popup-image__caption');
+const popupImagePicture = popupImage.querySelector('.popup-image__picture');
+const formAddPlace = document.querySelector('.popup__form[name="cards-add"]');
+const popupAddPlace = document.querySelector(".popup__add-place");
+const card = document.querySelectorAll('.card')
 
-// Добавляем карточки на страницу. Пишем функцию создания карточек.
+// Пишем функцию по открытию карточки в режиме просмотра
+function cardsOpener(event) {
+  popupImage.classList.toggle('popup-image_is-opened');
+  const srcOfEvent =  event.target.src;
+  const card = event.target.parentElement;
+  const cardCaption = card.querySelector('.card__info-name');
+  popupImageCaption.textContent = cardCaption.textContent;
+  popupImagePicture.src = srcOfEvent;
+  event.stopPropagation();}
+
+// Пишем обработчик закрытия формы с просмотром.
+function imageCloseButtonClick() {
+  popupImage.classList.toggle('popup-image_is-opened');
+}
+
+//слушаем нажатие на закрытие карточки
+popupImageCloseButton.addEventListener('click', imageCloseButtonClick );
+//___________________________
+
+
+
+
+//// 2. Добавляем карточки на страницу. Пишем функцию создания карточек.
 function addCard() {
-
   for (let i = 0; i < initialCards.length; i++) {
       const data = initialCards[i];
       const name = data.name;
@@ -41,56 +68,81 @@ function addCard() {
       createCard(name, link);
   }
 }
-// Создаем карточку из template в HTML. Пишем функцию создания карточек.
-function createCard (name, link) {
-  const cardTemplate = document.querySelector('.template-card').content;
-  const cardsContainer = document.querySelector('.cards');
-  const newElement = cardTemplate.querySelector('.card').cloneNode(true);
-  // console.log(newElement);
-  const cardLink = newElement.querySelector('.card__image');
-  const cardName = newElement.querySelector('.card__info-name');
-  cardLink.src = link;
-  cardLink.alt = 'Изображение ' + name;
-  cardName.textContent = name;
-  cardsContainer.appendChild(newElement);
-}
-//Вызываем функцию создания карточек в DOM
-addCard();
-// Конец работы с карточками
 //___________________________
 
 
 
 
-// начало работы с формой по редактированию имени и подписи
+//// 3. Создаем карточку из template в HTML. Пишем функцию создания карточек.
+function createCard (name, link) {
+  const cardTemplate = document.querySelector('.template-card').content;
+  const cardsContainer = document.querySelector('.cards');
+  const newElement = cardTemplate.querySelector('.card').cloneNode(true);
+  const cardImage = newElement.querySelector('.card__image');
+  const cardName = newElement.querySelector('.card__info-name');
+  const delCard = newElement.querySelector('.card__delete-button');
+  cardImage.addEventListener('click', cardsOpener );
+
+  newElement.querySelector('.card__info-like').addEventListener('click', function (evt) {
+    evt.target.classList.toggle('card__info-like_liked');
+  });
+
+  delCard.addEventListener('click', function (evt) {
+    const placesList = document.querySelector("section.cards");
+    placesList.removeChild(evt.target.parentNode);
+    evt.stopPropagation();
+  });
+
+  cardImage.src = link;
+  cardImage.alt = 'Изображение ' + name;
+  cardName.textContent = name;
+
+  // Пишем логику добавления карточки. Если открыта форма по добавлению карточки - ее нужно добавить в начало.
+  // В любом другом случае карточку нужно добавлять в конец контейнера
+
+  if (popupAddPlace.style.visibility === 'visible') {
+    cardsContainer.prepend(newElement);
+  }
+  else {cardsContainer.appendChild(newElement);}
+}
+//Вызываем функцию создания карточек в DOM
+addCard();
+//___________________________
+
+
+
+
+//// 4. начало работы с формой по редактированию имени и подписи
 const profileInfoEditButton = document.querySelector(".profile__info-edit");
 const profileInfoCloseButton = document.querySelector(".popup__close-button-profile");
 const popupProfileEdit = document.querySelector(".popup__profile-edit");
 const inputCaption = document.querySelector(".popup__input_data-caption");
 const profileEditSaveButton = document.querySelector('.popup__save-button')
 const inputName = document.querySelector(".popup__input_data-name");
-//пишем функцию обработчик нажатия кнопки "редактировать"
+
+// пишем функцию обработчик нажатия кнопки "редактировать"
 function popupProfileCloseClick() {
   popupProfileEdit.style.visibility = "hidden";
   popupProfileEdit.style.opacity = "0";
 }
-//пишем функцию обработчик нажатия кнопки "редактировать"
+
+// пишем функцию обработчик нажатия кнопки "редактировать"
 function popupProfileEditClick() {
   popupProfileEdit.style.visibility = "visible";
   popupProfileEdit.style.opacity = "1";
   inputName.value = document.querySelector(".profile__info-name").textContent;
   inputCaption.value = document.querySelector(".profile__info-caption").textContent;
 }
+
 // слушаем нажатие кнопки редактировать и закрыть форму редактирования 
 profileInfoEditButton.addEventListener("click", popupProfileEditClick);
 profileInfoCloseButton.addEventListener("click", popupProfileCloseClick);
-// Конец работы с формой по редактированию имени и подписи
 //___________________________
 
 
 
 
-// работа с именем и подписью. обработчик кнопки submit
+//// 5. работа с именем и подписью. обработчик кнопки submit
 const formElement = document.querySelector('.popup__form[name="profile-edit"]');
 const nameInput = formElement.querySelector('.popup__input_data-name');
 const captionInput = formElement.querySelector('.popup__input_data-caption');
@@ -105,17 +157,18 @@ profileCaption.textContent = captionInput.value;
 popupProfileEdit.style.visibility = "hidden";
 popupProfileEdit.style.opacity = "0";
 }
+
 // слушаем нажатие кнопки сохранить
 formElement.addEventListener('submit', formSubmitHandler);
-// конец работы с именем и подписью. обработчик кнопки submit
 //___________________________
 
 
 
-// начало работы с формой по добавлению карточек
+//// 6. Открываем форму добавления пользовательских карточек.
 const addPlaceAddButton = document.querySelector(".profile__add-picture");
 const addPlaceCloseButton = document.querySelector(".popup__close-cards-add-button");
-const popupAddPlace = document.querySelector(".popup__add-place");
+
+const popupAddPlaceSubmitButton = popupAddPlace.querySelector('.popup__save-button');
 
 function popupAddPlaceClick() {
   popupAddPlace.style.visibility = "visible";
@@ -129,56 +182,19 @@ function popupAddPlaceCloseClick() {
 
 addPlaceAddButton.addEventListener("click", popupAddPlaceClick);
 addPlaceCloseButton.addEventListener("click", popupAddPlaceCloseClick);
-
-// Удаляем карточки
-function delHandler(event) {
-  const placesList = document.querySelector("section.cards");
-  placesList.removeChild(event.target.parentNode);
-  event.stopPropagation();
-}
-// слушаем нажатия на кнопку удалить в каждой карточке
-document.querySelectorAll(".card__delete-button").forEach((item) => {
-  item.addEventListener("click", delHandler);
-});
-// добавляем лайки
-function likesHandler(event) {
-  event.target.classList.toggle('card__info-like_liked');
-  event.stopPropagation();}
-// слушаем нажатия на каждую кнопку лайка
-document.querySelectorAll(".card__info-like").forEach((item) => {
-  item.addEventListener("click", likesHandler);
-});
-
 //___________________________
 
+//// 7. Добавляем пользовательскую карточку по нажатию.
 
 
-
-// Работаем с попапом открытия
-const popupImage = document.querySelector('.popup-image');
-const popupImageCloseButton = popupImage.querySelector('.popup__close-button');
-const popupImageCaption = popupImage.querySelector('.popup-image__caption');
-const popupImagePicture = popupImage.querySelector('.popup-image__picture');
-const card = document.querySelectorAll('.card')
-
-function cardsOpener(event) {
-  popupImage.classList.toggle('popup-image_is-opened');
-  // event.target.classList.toggle('card__info-like_liked');
-  const srcOfEvent =  event.target.src;
-  const card = event.target.parentElement;
-  const cardCaption = card.querySelector('.card__info-name');
-  popupImageCaption.textContent = cardCaption.textContent;
-  console.log(popupImageCaption.textContent);
-  popupImagePicture.src = srcOfEvent;
-  event.stopPropagation();}
-
-
-// слушаем нажатия на все картинки card__image
-document.querySelectorAll(".card__image").forEach((item) => {
-  item.addEventListener("click", cardsOpener);
-});
-function imageCloseButtonClick() {
-  popupImage.classList.toggle('popup-image_is-opened');
+function addCustomCard(event) {
+  event.preventDefault();
+  let name = formAddPlace.querySelector('.popup__input_place-name').value;
+  let link = formAddPlace.querySelector('.popup__input_place-link').value;
+  createCard(name, link);
+  popupAddPlaceCloseClick();
+  
 }
-
-popupImageCloseButton.addEventListener('click', imageCloseButtonClick );
+// Слушаем нажатие кнопки по добавлению пользовательской картинки на страницу
+formAddPlace.addEventListener('submit', addCustomCard);
+//___________________________
