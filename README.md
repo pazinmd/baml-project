@@ -32,5 +32,5 @@
 * [Ссылка на проект ](https://github.com/pazinmd/mesto-project)
 * [Ссылка на проект на Github Pages](https://pazinmd.github.io/mesto-project/)
 
-**upd:** * [Ссылка на новый макет в Figma](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1)
+**upd:**  [Ссылка на новый макет в Figma](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1)
 
