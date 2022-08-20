@@ -26,12 +26,12 @@
       <button type="button" class="profile__add-picture"></button>
     </section>
 
-    <div class="popup" title="profile-edit">
+    <div class="popup popup-profile-edit" title="profile-edit">
       <!-- profile edit popup -->
       <div class="popup__container">
         <form class="popup__form" name="profile-edit">
           <h2 class="popup__name">Редактировать профиль</h2>
-          <button type="button" class="popup__close-button popup__close-button-profile"></button>
+          <button type="button" class="popup__close-button"></button>
           <input placeholder="Жак-Ив Кусто" class="popup__input popup__input_data-name" type="text" name="username">
           <input placeholder="Исследователь океана" class="popup__input popup__input_data-caption" type="text" name="caption">
           <button class="popup__save-button" type="submit">Сохранить</button>
@@ -40,12 +40,12 @@
       </div>
     </div>
 
-    <div class="popup" title="add-place">
+    <div class="popup popup-add-card" title="add-place">
       <!-- add place popup -->
       <div class="popup__container">
         <form class="popup__form" name="cards-add">
           <h2 class="popup__name">Новое место</h2>
-          <button type="button" class="popup__close-button popup__close-cards-add-button"></button>
+          <button type="button" class="popup__close-button"></button>
           <input placeholder="Название" class="popup__input popup__input_place-name" type="text" name="placeName">
           <input placeholder="Ссылка на картинку" class="popup__input popup__input_place-link" type="text" name="imageLink">
           <button class="popup__save-button" type="submit">Создать</button>
@@ -54,12 +54,14 @@
       </div>
     </div>
 
-    <div class="popup-image ">
-      <!-- profile open picture -->
-      <figure class="popup-image__container">
-        <img class="popup-image__picture" src="https://images.unsplash.com/photo-1657299156271-d5a435dd65b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-        <button type="button" class="popup-image__close-button"></button>
-        <figcaption class="popup-image__caption"></figcaption>
+    <div class="popup popup-picture-viewer">
+      <!-- open picture popup -->
+      <figure class="popup__figure">
+        <img class="popup__figure-image"
+          src=""
+          alt="">
+        <button type="button" class="popup__close-button"></button>
+        <figcaption class="popup__figure-caption"></figcaption>
       </figure>
     </div>
 
@@ -70,17 +72,21 @@
   <footer class="footer">
     <p class="footer__caption">&copy; 2022 Mesto Russia</p>
   </footer>
-<template class="template-card">
-  <article class="card">
-    <img class="card__image" src="" alt="">
-    <button class="card__delete-button" type="button"></button>
-    <div class="card__info">
-      <h2 class="card__info-name"></h2>
-      <button class="card__info-like" type="button" ></button>
-    </div>
-  </article>
-</template>
-  <script src="./script.js"></script>
+
+  <template class="template-card">
+    <article class="card">
+      <img class="card__image" 
+      src="" 
+      alt="">
+      <button class="card__delete-button" type="button"></button>
+      <div class="card__info">
+        <h2 class="card__info-name"></h2>
+        <button class="card__info-like" type="button"></button>
+      </div>
+    </article>
+  </template>
+
+  <script src="./scripts/script.js"></script>
 
 </body>
 
