@@ -171,12 +171,9 @@ function addCard() {
 
 function addCustomCard(event) {
   event.preventDefault();
-  const nameOfPlace = formAddPlace.querySelector(
-    ".popup__input_place-name"
-  ).value;
-  const linkOfImage = formAddPlace.querySelector(
-    ".popup__input_place-link"
-  ).value;
+  
+  let nameOfPlace = event.target.querySelector('.popup__input_place-name').value;
+  let linkOfImage = event.target.querySelector('.popup__input_place-link').value;
   createCard(nameOfPlace, linkOfImage, (prepend = true));
   closeAddPlacePopup();
   event.target.reset();
