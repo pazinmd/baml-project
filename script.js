@@ -30,11 +30,11 @@ const initialCards = [
 
 //// 1. Работаем с попапом открытия карточки
 const popupImage = document.querySelector('.popup-image');
-const popupImageCloseButton = popupImage.querySelector('.popup__close-button');
+const popupImageCloseButton = popupImage.querySelector('.popup-image__close-button');
 const popupImageCaption = popupImage.querySelector('.popup-image__caption');
 const popupImagePicture = popupImage.querySelector('.popup-image__picture');
 const formAddPlace = document.querySelector('.popup__form[name="cards-add"]');
-const popupAddPlace = document.querySelector(".popup__add-place");
+const popupAddPlace = document.querySelector('.popup[data="add-place"]');
 const card = document.querySelectorAll('.card')
 
 // Пишем функцию по открытию карточки в режиме просмотра
@@ -115,7 +115,7 @@ addCard();
 //// 4. начало работы с формой по редактированию имени и подписи
 const profileInfoEditButton = document.querySelector(".profile__info-edit");
 const profileInfoCloseButton = document.querySelector(".popup__close-button-profile");
-const popupProfileEdit = document.querySelector(".popup__profile-edit");
+const popupProfileEdit = document.querySelector('.popup[data="profile-edit"]');
 const inputCaption = document.querySelector(".popup__input_data-caption");
 const profileEditSaveButton = document.querySelector('.popup__save-button')
 const inputName = document.querySelector(".popup__input_data-name");
