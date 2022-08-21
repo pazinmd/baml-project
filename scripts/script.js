@@ -26,10 +26,9 @@ const initialCards = [
 ];
 
 //// 1. Объявляем переменные
-
+const closeButtons = document.querySelectorAll(".popup__close-button");
 //popupImage variables
 const popupImage = document.querySelector(".popup-picture-viewer");
-const popupImageCloseButton = popupImage.querySelector(".popup__close-button");
 const popupImageCaption = popupImage.querySelector(".popup__figure-caption");
 const popupImagePicture = popupImage.querySelector(".popup__figure-image");
 
@@ -44,9 +43,6 @@ const popupProfileEdit = document.querySelector(".popup-profile-edit");
 
 // profile info edit variables
 const profileInfoEditButton = document.querySelector(".profile__info-edit");
-const profileInfoCloseButton = popupProfileEdit.querySelector(
-  ".popup__close-button"
-);
 
 const inputCaption = document.querySelector(".popup__input_data-caption");
 const profileEditSaveButton = document.querySelector(".popup__save-button");
@@ -60,14 +56,14 @@ const captionInput = formProfileEdit.querySelector(
 );
 const profileName = document.querySelector(".profile__info-name");
 const profileCaption = document.querySelector(".profile__info-caption");
+const placeNameInput = document.querySelector(".popup__input_place-name");
+const placeLinkInput = document.querySelector(".popup__input_place-link");
 
 // template variables
-const cardTemplate = document.querySelector(".template-card").content;
 const cardsContainer = document.querySelector(".cards");
 
 //profile add picture var
 const addPlaceAddButton = document.querySelector(".profile__add-picture");
-const addPlaceCloseButton = popupAddPlace.querySelector(".popup__close-button");
 
 //// 2. Пишем функции обработчики
 
@@ -85,10 +81,6 @@ function openAddPlacePopup() {
   openPopup(popupAddPlace);
 }
 
-function closeAddPlacePopup() {
-  closePopup(popupAddPlace);
-}
-
 // Функция по открытию попапа с изображением в режиме просмотра
 function openCard(event) {
   openPopup(popupImage);
@@ -102,18 +94,11 @@ function openCard(event) {
   event.stopPropagation();
 }
 
-// Функция для нажатия крестика в попапе с просмотром.
-function closeImagePopup() {
-  closePopup(popupImage);
-}
-
 // функция по открытия попапа редактирования информации
 function openProfileEdit() {
   openPopup(popupProfileEdit);
-  inputName.value = document.querySelector(".profile__info-name").textContent;
-  inputCaption.value = document.querySelector(
-    ".profile__info-caption"
-  ).textContent;
+  inputName.value = profileName.textContent;
+  inputCaption.value = profileCaption.textContent;
 }
 // функция по закрытию попапа редактирования информации без изменений
 function closePopupProfileEdit() {
@@ -130,40 +115,38 @@ function saveProfileInfo(evt) {
 
 // функция создания карточки из template в HTML. Пишем функцию создания карточек.
 function createCard(name, link, prepend = false) {
-  let newElement = cardTemplate.querySelector(".card").cloneNode(true);
-  let cardImage = newElement.querySelector(".card__image");
-  let cardName = newElement.querySelector(".card__info-name");
-  let delCard = newElement.querySelector(".card__delete-button");
-  cardImage.addEventListener("click", openCard);
-
-  newElement
+  const cardTemplate = document
+    .querySelector(".template-card")
+    .content.querySelector(".card")
+    .cloneNode(true);
+  cardTemplate.querySelector(".card__info-name").textContent = name;
+  cardTemplate.querySelector(".card__image").src = link;
+  cardTemplate.querySelector(".card__image").alt = "Изображение " + name;
+  cardTemplate
     .querySelector(".card__info-like")
     .addEventListener("click", function (evt) {
       evt.target.classList.toggle("card__info-like_liked");
     });
-
-  delCard.addEventListener("click", function () {
-    newElement.remove();
-  });
-
-  cardImage.src = link;
-  cardImage.alt = "Изображение " + name;
-  cardName.textContent = name;
+  cardTemplate
+    .querySelector(".card__delete-button")
+    .addEventListener("click", function () {
+      cardTemplate.remove();
+    });
+  cardTemplate
+    .querySelector(".card__image")
+    .addEventListener("click", openCard);
 
   if (prepend) {
-    cardsContainer.prepend(newElement);
+    cardsContainer.prepend(cardTemplate);
   } else {
-    cardsContainer.appendChild(newElement);
+    cardsContainer.appendChild(cardTemplate);
   }
 }
 
 // пишем функцию по добавлению карточек
-function addCard() {
+function renderCards() {
   for (let i = 0; i < initialCards.length; i++) {
-    const data = initialCards[i];
-    const name = data.name;
-    const link = data.link;
-    createCard(name, link, (prepend = false));
+    createCard(initialCards[i].name, initialCards[i].link);
   }
 }
 
@@ -171,13 +154,15 @@ function addCard() {
 
 function addCustomCard(event) {
   event.preventDefault();
-  
-  let nameOfPlace = event.target.querySelector('.popup__input_place-name').value;
-  let linkOfImage = event.target.querySelector('.popup__input_place-link').value;
-  createCard(nameOfPlace, linkOfImage, (prepend = true));
-  closeAddPlacePopup();
+  createCard(placeNameInput.value, placeLinkInput.value, true);
+  closePopup(popupAddPlace);
   event.target.reset();
 }
+// обрабатываем нажатия на каждый крестик в проекте
+closeButtons.forEach((button) => {
+  const popup = button.closest(".popup");
+  button.addEventListener("click", () => closePopup(popup));
+});
 
 // слушатели
 
@@ -190,16 +175,8 @@ formProfileEdit.addEventListener("submit", saveProfileInfo);
 // слушаем нажатие кнопки по добавлению пользовательской картинки на страницу
 formAddPlace.addEventListener("submit", addCustomCard);
 
-//слушаем нажатие на закрытие карточки
-popupImageCloseButton.addEventListener("click", closeImagePopup);
-
-// слушаем нажатие на закрытие попапа с редактированием информации о пользователе
-profileInfoCloseButton.addEventListener("click", closePopupProfileEdit);
-
-// слушатели нажатий на открыть и закрыть форму добавления карточек
+// слушаем открытие формы добавления карточек
 addPlaceAddButton.addEventListener("click", openAddPlacePopup);
 
-// слушаем нажатие на крестик в форме добавления карточек
-addPlaceCloseButton.addEventListener("click", closeAddPlacePopup);
 // добавляем карточки в проект
-addCard();
+renderCards();
