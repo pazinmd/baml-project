@@ -62,6 +62,7 @@ const placeLinkInput = document.querySelector(".popup__input_place-link");
 // template variables
 const cardsContainer = document.querySelector(".cards");
 
+
 //profile add picture var
 const addPlaceAddButton = document.querySelector(".profile__add-picture");
 
@@ -119,9 +120,10 @@ function createCard(name, link, prepend = false) {
     .querySelector(".template-card")
     .content.querySelector(".card")
     .cloneNode(true);
+  const cardTemplateImage = cardTemplate.querySelector(".card__image");
   cardTemplate.querySelector(".card__info-name").textContent = name;
-  cardTemplate.querySelector(".card__image").src = link;
-  cardTemplate.querySelector(".card__image").alt = "Изображение " + name;
+  cardTemplateImage.src = link;
+  cardTemplateImage.alt = "Изображение " + name;
   cardTemplate
     .querySelector(".card__info-like")
     .addEventListener("click", function (evt) {
@@ -132,8 +134,7 @@ function createCard(name, link, prepend = false) {
     .addEventListener("click", function () {
       cardTemplate.remove();
     });
-  cardTemplate
-    .querySelector(".card__image")
+    cardTemplateImage
     .addEventListener("click", openCard);
 
   if (prepend) {
