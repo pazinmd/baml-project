@@ -174,7 +174,7 @@
   width: 32px;
   height: 32px;
   opacity: 1;
-  background-image: url('../../../images/buttons/close-button.svg');
+  background-image: url('../../images/buttons/close-button.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-color: transparent;
