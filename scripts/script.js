@@ -1,32 +1,46 @@
 const initialCards = [
   {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
+    name: "Что такое BAML?",
+    link: "https://gsl-news.org/data/wp-content/uploads/2022/05/PWNnbhWVzI.jpg",
   },
   {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
+    name: "Законы и УКБО",
+    link: "https://xn--l1akee.xn----ctbgrqkh1c.xn--p1ai/wp-content/uploads/2019/03/zak.jpg",
   },
   {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
+    name: "Денежный поток",
+    link: "https://static.tildacdn.com/tild3764-3534-4636-b039-316466623831/OTZkLWExZ.jpg",
   },
   {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
+    name: "Как обрабатывать?",
+    link: "http://memesmix.net/media/created/6818hc.jpg",
   },
   {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
+    name: "Финансовый мониторинг",
+    link: "https://www.gradyent.ru/upload/images/11.jpg",
   },
   {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
+    name: "Ограничение или блокировка?",
+    link: "https://pp.userapi.com/c9833/u790332/-1/x_01f86a93.jpg",
+  },
+  {
+    name: "Еще один раздел",
+    link: "https://pp.userapi.com/c9833/u790332/-1/x_01f86a93.jpg",
+  },
+  {
+    name: "Еще один раздел",
+    link: "https://pp.userapi.com/c9833/u790332/-1/x_01f86a93.jpg",
+  },
+  {
+    name: "Итоговый тест",
+    link: "https://www.linguacontact.ru/wp-content/uploads/2021/04/testy.jpg",
   },
 ];
 
 //// 1. Объявляем переменные
 const closeButtons = document.querySelectorAll(".popup__close-button");
+const sliderCont = document.querySelector('.slider-container');
+const sliderCloseButton = document.querySelector(".slider__close-button");
 //popupImage variables
 const popupImage = document.querySelector(".popup-picture-viewer");
 const popupImageCaption = popupImage.querySelector(".popup__figure-caption");
@@ -84,16 +98,27 @@ function openAddPlacePopup() {
 
 // Функция по открытию попапа с изображением в режиме просмотра
 function openCard(event) {
-  openPopup(popupImage);
-  const srcOfEvent = event.target.src;
-  const altOfEvent = event.target.alt;
-  const card = event.target.closest(".card");
-  const cardCaption = card.querySelector(".card__info-name");
-  popupImageCaption.textContent = cardCaption.textContent;
-  popupImagePicture.src = srcOfEvent;
-  popupImagePicture.alt = altOfEvent;
-  event.stopPropagation();
+  sliderCont.classList.add("slider-container-open");
+  slider.classList.add("slider-container-open");
 }
+
+function closeSlider() {
+  sliderCont.classList.remove("slider-container-open");
+  slider.classList.remove("slider-container-open");
+}
+
+
+// function openCard(event) {
+//   openPopup(popupImage);
+//   const srcOfEvent = event.target.src;
+//   const altOfEvent = event.target.alt;
+//   const card = event.target.closest(".card");
+//   const cardCaption = card.querySelector(".card__info-name");
+//   popupImageCaption.textContent = cardCaption.textContent;
+//   popupImagePicture.src = srcOfEvent;
+//   popupImagePicture.alt = altOfEvent;
+//   event.stopPropagation();
+// }
 
 // функция по открытия попапа редактирования информации
 function openProfileEdit() {
@@ -167,6 +192,8 @@ closeButtons.forEach((button) => {
 
 // слушатели
 
+sliderCloseButton.addEventListener("click",closeSlider );
+
 // слушаем нажатие кнопки редактировать и закрыть форму редактирования
 profileInfoEditButton.addEventListener("click", openProfileEdit);
 
@@ -177,7 +204,95 @@ formProfileEdit.addEventListener("submit", saveProfileInfo);
 formAddPlace.addEventListener("submit", addCustomCard);
 
 // слушаем открытие формы добавления карточек
-addPlaceAddButton.addEventListener("click", openAddPlacePopup);
+// addPlaceAddButton.addEventListener("click", openAddPlacePopup);
 
 // добавляем карточки в проект
 renderCards();
+
+
+
+
+
+
+
+
+
+const slider = document.querySelector(".slider");
+const nextBtn = document.querySelector(".next-btn");
+const prevBtn = document.querySelector(".prev-btn");
+const slides = document.querySelectorAll(".slide");
+const slideIcons = document.querySelectorAll(".slide-icon");
+const numberOfSlides = slides.length;
+var slideNumber = 0;
+
+//image slider next button
+nextBtn.addEventListener("click", () => {
+  slides.forEach((slide) => {
+    slide.classList.remove("active");
+  });
+  slideIcons.forEach((slideIcon) => {
+    slideIcon.classList.remove("active");
+  });
+
+  slideNumber++;
+
+  if(slideNumber > (numberOfSlides - 1)){
+    slideNumber = 0;
+  }
+
+  slides[slideNumber].classList.add("active");
+  slideIcons[slideNumber].classList.add("active");
+});
+
+//image slider previous button
+prevBtn.addEventListener("click", () => {
+  slides.forEach((slide) => {
+    slide.classList.remove("active");
+  });
+  slideIcons.forEach((slideIcon) => {
+    slideIcon.classList.remove("active");
+  });
+
+  slideNumber--;
+
+  if(slideNumber < 0){
+    slideNumber = numberOfSlides - 1;
+  }
+
+  slides[slideNumber].classList.add("active");
+  slideIcons[slideNumber].classList.add("active");
+});
+
+// //image slider autoplay
+// var playSlider;
+
+// var repeater = () => {
+//   playSlider = setInterval(function(){
+//     slides.forEach((slide) => {
+//       slide.classList.remove("active");
+//     });
+//     slideIcons.forEach((slideIcon) => {
+//       slideIcon.classList.remove("active");
+//     });
+
+//     slideNumber++;
+
+//     if(slideNumber > (numberOfSlides - 1)){
+//       slideNumber = 0;
+//     }
+
+//     slides[slideNumber].classList.add("active");
+//     slideIcons[slideNumber].classList.add("active");
+//   }, 4000);
+// }
+// repeater();
+
+// //stop the image slider autoplay on mouseover
+// slider.addEventListener("mouseover", () => {
+//   clearInterval(playSlider);
+// });
+
+// //start the image slider autoplay again on mouseout
+// slider.addEventListener("mouseout", () => {
+//   repeater();
+// });

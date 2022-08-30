@@ -1,5 +1,5 @@
 .card__info-like_liked {
-  background-image: url('../../../../images/buttons/like-button-active.svg');
+  background-image: url('../../../../images/buttons/checkbox_checked_icon.png');
 }
 
 .card__info-like_liked:hover {

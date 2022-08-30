@@ -6,24 +6,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./pages/index.css">
-  <title>Mesto app</title>
+  <title>BAML course</title>
 </head>
 
 <body class="page">
 
   <header class="header">
-    <img class="header__logo" src="./images/logo.svg" alt="Логотип приложения">
+   <a href="https://www.tinkoff.ru/" target="_blank"><img class="header__logo" src="./images/tinkoff.svg" alt="Логотип приложения"></a> 
   </header>
 
   <main class="main-content">
     <section class="profile">
-      <img class="profile__avatar" src="./images/profile-photos/Zhak-photo.png" alt="Аватар пользователя">
+      <!-- <img class="profile__avatar" src="./images/profile-photos/Zhak-photo.png" alt="Аватар пользователя"> -->
       <div class="profile__info">
-        <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+        <h1 class="profile__info-name">AML (Anti-money laundering)</h1>
         <button class="profile__info-edit" type="button"></button>
-        <p class="profile__info-caption">Исследователь океана</p>
+        <p class="profile__info-caption">Что это такое и как с этим работать?</p>
       </div>
-      <button type="button" class="profile__add-picture"></button>
+      <button value="Refresh Page" onClick="window.location.reload();" data-tooltip="Начать заново..." type="button" class="profile__add-picture"></button>
     </section>
 
     <div class="popup popup-profile-edit">
@@ -67,10 +67,87 @@
 
     <section class="cards">
     </section>
+
+    
+<div class="slider-container">
+    <div class="slider">
+      <button type="button" class="slider__close-button"></button>
+      <div class="slide active">
+        <img class="slide-background" src="./images/cards/Dombai.png" alt="">
+        <div class="info">
+          <h2>BAML</h2>
+          <p>Это ограничение Дистанционного Банковского Обслуживания(в процедурах и материалах на обучающем портале ты можешь увидеть сокращение ДБО)</p>
+          <p>Здесь дальше будет умный текст, который мы напишем. Всё, что будет в слайдах дальше - просто демонстрация того, как выглядит текст на слайдах.
+            Здесь дальше будет умный текст, который мы напишем. Всё, что будет в слайдах дальше - просто демонстрация того, как выглядит текст на слайдах
+            Здесь дальше будет умный текст, который мы напишем. Всё, что будет в слайдах дальше - просто демонстрация того, как выглядит текст на слайдах
+            Здесь дальше будет умный текст, который мы напишем. Всё, что будет в слайдах дальше - просто демонстрация того, как выглядит текст на слайдах
+            Здесь дальше будет умный текст, который мы напишем. Всё, что будет в слайдах дальше - просто демонстрация того, как выглядит текст на слайдах
+          </p>
+
+          <p>Разделение абзацов выделяется на слайдах весьма заметно</p>
+        </div>
+      </div>
+
+      <div class="slide">
+        <!-- <img class="slide-background" src="./images/cards/Elbrus.png" alt=""> -->
+        <div class="info">
+          <h2>Следующий слайд. Например - слайд с изображением</h2>
+          <p>Как вы можете заметить работает и анимация.</p>
+          <p>Причем не обязательно делать фоновое изображение для каждого слайда</p>
+          <p>Конкретно тут его нет. Но текст читаем</p>
+          <Img class="slide__image" src="https://c.tenor.com/aaEMtGfZFbkAAAAC/rat-spinning.gif"></Img>
+        </div>
+      </div>
+
+
+      <div class="slide">
+        <img class="slide-background" src="./images/cards/zubia.png" alt="">
+        <div class="info">
+          <h2>Можем и со списками поиграться</h2>
+          <p>Какие нибудь списки можно посоздавать</p>
+          <p>Что я хочу?</p>
+          <ul>
+            <li>Хачю сосиску</li>
+            <li>Большую премию</li>
+            <li>Поток креатива иссяк</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <!-- <div class="slide">
+        <img class="slide-background" src="./images/cards/kosa.png" alt="">
+        <div class="info">
+          <h2>Mountain River</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img class="slide-background" src="./images/cards/Karachaevo.png" alt="">
+        <div class="info">
+          <h2>Egypt Pyramids</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div> -->
+      <div class="navigation">
+        <i class="fas fa-chevron-left prev-btn"></i>
+        <i class="fas fa-chevron-right next-btn"></i>
+      </div>
+      <div class="navigation-visibility">
+        <div class="slide-icon active"></div>
+        <div class="slide-icon"></div>
+        <div class="slide-icon"></div>
+        <!-- <div class="slide-icon"></div>
+        <div class="slide-icon"></div> -->
+      </div>
+    </div>
+  </div>
+
+    
   </main>
 
   <footer class="footer">
-    <p class="footer__caption">&copy; 2022 Mesto Russia</p>
+    <p class="footer__caption">&copy; 2022 Tinkoff Russia</p>
   </footer>
 
   <template class="template-card">
