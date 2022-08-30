@@ -13,7 +13,7 @@ const initialCards = [
   },
   {
     name: "Как обрабатывать?",
-    link: "http://memesmix.net/media/created/6818hc.jpg",
+    link: "https://sun9-87.userapi.com/impg/hDFAfeoG2s_k14k26cZnIdudjuAJyo150cyOBg/mEOmnINr1hs.jpg?size=600x534&quality=96&sign=d1cd5f647d17d0b158e263a0138af393&type=album",
   },
   {
     name: "Финансовый мониторинг",
