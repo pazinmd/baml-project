@@ -37,6 +37,10 @@ const initialCards = [
   },
 ];
 
+
+
+
+
 //// 1. Объявляем переменные
 const closeButtons = document.querySelectorAll(".popup__close-button");
 const sliderCont = document.querySelector('.slider-container');
@@ -77,8 +81,19 @@ const placeLinkInput = document.querySelector(".popup__input_place-link");
 const cardsContainer = document.querySelector(".cards");
 
 
+
 //profile add picture var
 const addPlaceAddButton = document.querySelector(".profile__add-picture");
+
+//slideshow content
+const slider = document.querySelector(".slider");
+const nextBtn = document.querySelector(".next-btn");
+const prevBtn = document.querySelector(".prev-btn");
+const slides = document.querySelectorAll(".slide");
+const slideIcons = document.querySelectorAll(".slide-icon");
+const numberOfSlides = slides.length;
+const slideshowContainer = document.querySelector(".slider-container");
+let slideNumber = 0;
 
 //// 2. Пишем функции обработчики
 
@@ -96,51 +111,26 @@ function openAddPlacePopup() {
   openPopup(popupAddPlace);
 }
 
-// Функция по открытию попапа с изображением в режиме просмотра
-function openCard(event) {
-  sliderCont.classList.add("slider-container-open");
-  slider.classList.add("slider-container-open");
-}
+
+
 
 function closeSlider() {
   sliderCont.classList.remove("slider-container-open");
   slider.classList.remove("slider-container-open");
+
+  document.querySelectorAll(".slide").forEach((element) => {
+    element.classList.remove("active");
+  });
+
+  document.querySelectorAll(".slide-icon").forEach((element) => {
+    element.classList.remove("active");
+  });
 }
 
-
-// function openCard(event) {
-//   openPopup(popupImage);
-//   const srcOfEvent = event.target.src;
-//   const altOfEvent = event.target.alt;
-//   const card = event.target.closest(".card");
-//   const cardCaption = card.querySelector(".card__info-name");
-//   popupImageCaption.textContent = cardCaption.textContent;
-//   popupImagePicture.src = srcOfEvent;
-//   popupImagePicture.alt = altOfEvent;
-//   event.stopPropagation();
-// }
-
-// функция по открытия попапа редактирования информации
-function openProfileEdit() {
-  openPopup(popupProfileEdit);
-  inputName.value = profileName.textContent;
-  inputCaption.value = profileCaption.textContent;
-}
-// функция по закрытию попапа редактирования информации без изменений
-function closePopupProfileEdit() {
-  closePopup(popupProfileEdit);
-}
-
-// функция для отправки значений name и caption по нажатию кнопки сохранить в форме по редактированию информации
-function saveProfileInfo(evt) {
-  evt.preventDefault();
-  profileName.textContent = nameInput.value;
-  profileCaption.textContent = captionInput.value;
-  closePopup(popupProfileEdit);
-}
 
 // функция создания карточки из template в HTML. Пишем функцию создания карточек.
 function createCard(name, link, prepend = false) {
+  
   const cardTemplate = document
     .querySelector(".template-card")
     .content.querySelector(".card")
@@ -149,18 +139,12 @@ function createCard(name, link, prepend = false) {
   cardTemplate.querySelector(".card__info-name").textContent = name;
   cardTemplateImage.src = link;
   cardTemplateImage.alt = "Изображение " + name;
-  cardTemplate
-    .querySelector(".card__info-like")
-    .addEventListener("click", function (evt) {
-      evt.target.classList.toggle("card__info-like_liked");
-    });
-  cardTemplate
-    .querySelector(".card__delete-button")
-    .addEventListener("click", function () {
-      cardTemplate.remove();
-    });
-    cardTemplateImage
-    .addEventListener("click", openCard);
+
+  // cardTemplate
+  //   .querySelector(".card__info-like")
+  //   .addEventListener("click", function (evt) {
+  //     evt.target.classList.toggle("card__info-like_liked");
+  //   });
 
   if (prepend) {
     cardsContainer.prepend(cardTemplate);
@@ -176,14 +160,14 @@ function renderCards() {
   }
 }
 
-// функция для добавления карточек из соответствующего попапа
+// // функция для добавления карточек из соответствующего попапа
 
-function addCustomCard(event) {
-  event.preventDefault();
-  createCard(placeNameInput.value, placeLinkInput.value, true);
-  closePopup(popupAddPlace);
-  event.target.reset();
-}
+// function addCustomCard(event) {
+//   event.preventDefault();
+//   createCard(placeNameInput.value, placeLinkInput.value, true);
+//   closePopup(popupAddPlace);
+//   event.target.reset();
+// }
 // обрабатываем нажатия на каждый крестик в проекте
 closeButtons.forEach((button) => {
   const popup = button.closest(".popup");
@@ -194,36 +178,52 @@ closeButtons.forEach((button) => {
 
 sliderCloseButton.addEventListener("click",closeSlider );
 
-// слушаем нажатие кнопки редактировать и закрыть форму редактирования
-profileInfoEditButton.addEventListener("click", openProfileEdit);
-
-// слушаем нажатие кнопки сохранить
-formProfileEdit.addEventListener("submit", saveProfileInfo);
-
-// слушаем нажатие кнопки по добавлению пользовательской картинки на страницу
-formAddPlace.addEventListener("submit", addCustomCard);
-
-// слушаем открытие формы добавления карточек
-// addPlaceAddButton.addEventListener("click", openAddPlacePopup);
-
-// добавляем карточки в проект
 renderCards();
 
 
+const renderedCards = document.querySelectorAll(".card");
+
+for (let i = 0; i < renderedCards.length; i++) {
+  renderedCards[i].classList.add(`number_${i+1}`);
+};
+console.log(renderedCards);
+
+for (let i = 1; i < renderedCards.length; i++) {
+  renderedCards[i].classList.add('card_inactive');
+};
+
+const cardNumberOne = document.querySelector(".number_1");
+const cardNumberTwo = document.querySelector(".number_2");
+const cardNumberThree = document.querySelector(".number_3");
+const cardNumberFour = document.querySelector(".number_4");
+const cardNumberFive = document.querySelector(".number_5");
+const cardNumberSix = document.querySelector(".number_6");
+const cardNumberSeven = document.querySelector(".number_7");
+const cardNumberEight = document.querySelector(".number_8");
+const cardFinalTest = document.querySelector(".number_9");
+console.log(cardFinalTest);
+
+// cardNumberOne.querySelector('.card__image').addEventListener("click",openCard);
+cardNumberOne.querySelector('.card__image').addEventListener("click", function () {
+  cardNumberTwo.classList.remove("card_inactive");
+  cardNumberOne.querySelector('.card__info-like').classList.add('card__info-like_liked');
+  document.querySelector(".slide1").classList.add('active');
+  document.querySelector(".icon1").classList.add('active');
+  sliderCont.classList.add("slider-container-open");
+  slider.classList.add("slider-container-open");
+});
+
+cardNumberTwo.querySelector('.card__image').addEventListener("click", function () {
+  cardNumberThree.classList.remove("card_inactive");
+  cardNumberTwo.querySelector('.card__info-like').classList.add('card__info-like_liked');
+  document.querySelector(".slide3").classList.add('active');
+  document.querySelector(".icon3").classList.add('active');
+  sliderCont.classList.add("slider-container-open");
+  slider.classList.add("slider-container-open");
+});
 
 
 
-
-
-
-
-const slider = document.querySelector(".slider");
-const nextBtn = document.querySelector(".next-btn");
-const prevBtn = document.querySelector(".prev-btn");
-const slides = document.querySelectorAll(".slide");
-const slideIcons = document.querySelectorAll(".slide-icon");
-const numberOfSlides = slides.length;
-var slideNumber = 0;
 
 //image slider next button
 nextBtn.addEventListener("click", () => {
@@ -263,36 +263,4 @@ prevBtn.addEventListener("click", () => {
   slideIcons[slideNumber].classList.add("active");
 });
 
-// //image slider autoplay
-// var playSlider;
 
-// var repeater = () => {
-//   playSlider = setInterval(function(){
-//     slides.forEach((slide) => {
-//       slide.classList.remove("active");
-//     });
-//     slideIcons.forEach((slideIcon) => {
-//       slideIcon.classList.remove("active");
-//     });
-
-//     slideNumber++;
-
-//     if(slideNumber > (numberOfSlides - 1)){
-//       slideNumber = 0;
-//     }
-
-//     slides[slideNumber].classList.add("active");
-//     slideIcons[slideNumber].classList.add("active");
-//   }, 4000);
-// }
-// repeater();
-
-// //stop the image slider autoplay on mouseover
-// slider.addEventListener("mouseover", () => {
-//   clearInterval(playSlider);
-// });
-
-// //start the image slider autoplay again on mouseout
-// slider.addEventListener("mouseout", () => {
-//   repeater();
-// });

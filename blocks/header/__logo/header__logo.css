@@ -3,6 +3,7 @@
   width: 142px;
   height: 33px;
   display: block;
+  transition: opacity .3s linear;
 }
 
 @media (max-width: 768px) {
@@ -11,4 +12,8 @@
     width: 104px;
     height: 24px;
   }
+}
+
+.header__logo:hover {
+opacity: .5;
 }

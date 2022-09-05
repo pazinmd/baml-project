@@ -17,7 +17,7 @@
   opacity: 0;
   z-index: 2;
   background-color: rgba(0, 0, 0, 1);
-  transition: visibility .4s linear,opacity .4s linear;
+  transition: visibility .2s linear,opacity .2s linear;
   width: 1120px;
   max-height: 700px;
   /* overflow: hidden; */
@@ -96,6 +96,14 @@
   cursor: pointer;
 }
 
+.prev-btn:hover {
+  opacity: .5;
+  }
+
+.next-btn:hover {
+  opacity: .5;
+  }
+    
 .prev-btn{
   height: 35px;
   width: 35px;
@@ -105,7 +113,9 @@
   left:0;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
-  background-image: url();
+  background-color: transparent;
+  background-image: url('../../images/buttons/right-arrow-svgrepo-com.svg');
+  transform: rotate(180deg);
 }
 
 .next-btn{
@@ -117,6 +127,8 @@
   right:0;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
+  background-color: transparent;
+  background-image: url('../../images/buttons/right-arrow-svgrepo-com.svg');
 }
 
 .navigation-visibility{
@@ -156,7 +168,7 @@
   opacity: 0;
   z-index: 6;
   background-color: rgba(0, 0, 0, .5);
-  transition: visibility .4s linear,opacity .4s linear;
+  transition: visibility .2s linear,opacity .2s linear;
 }
 
 .slider-container-open {
