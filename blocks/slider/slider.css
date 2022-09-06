@@ -46,9 +46,9 @@
 
 .slide__image{
   position: relative;
-  width: 350px;
-  height: 350px;
-  object-fit: cover;
+  max-height: 350px;
+  max-width: 95%;
+  object-fit:contain;
 }
 
 
@@ -113,7 +113,7 @@
   left:0;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.5);
   background-image: url('../../images/buttons/right-arrow-svgrepo-com.svg');
   transform: rotate(180deg);
 }
@@ -127,7 +127,7 @@
   right:0;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.5);
   background-image: url('../../images/buttons/right-arrow-svgrepo-com.svg');
 }
 
@@ -155,6 +155,7 @@
 }
 
 .slider-container {
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -194,7 +195,7 @@
   transition: .3s;
 }
 
-.slider__close-button {
+.slider__close-button:hover {
   cursor: pointer;
   opacity: .6;
 }

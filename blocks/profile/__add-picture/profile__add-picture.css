@@ -36,7 +36,7 @@ content: attr(data-tooltip); /* Выводим текст */
     position: absolute; /* Абсолютное позиционирование */
     width: 135px; /* Ширина подсказки */
     left: -2px; top: 0; /* Положение подсказки */
-    background: #f2ea48; /* Синий цвет фона */
+    background: #fddf2e; /* Синий цвет фона */
     color: rgb(0, 0, 0); /* Цвет текста */
     padding: 0.5em; /* Поля вокруг текста */
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Параметры тени */
