@@ -1,34 +1,37 @@
 const initialCards = [
   {
-    name: "Что такое BAML?",
+    name: "Что такое AML?",
     link: "https://gsl-news.org/data/wp-content/uploads/2022/05/PWNnbhWVzI.jpg",
   },
   {
-    name: "Законы и УКБО",
+    name: "Меры государства",
     link: "https://xn--l1akee.xn----ctbgrqkh1c.xn--p1ai/wp-content/uploads/2019/03/zak.jpg",
   },
   {
-    name: "Денежный поток",
+    name: "Меры со стороны банка",
     link: "https://static.tildacdn.com/tild3764-3534-4636-b039-316466623831/OTZkLWExZ.jpg",
-  },
-  {
-    name: "Как обрабатывать?",
-    link: "https://sun9-87.userapi.com/impg/hDFAfeoG2s_k14k26cZnIdudjuAJyo150cyOBg/mEOmnINr1hs.jpg?size=600x534&quality=96&sign=d1cd5f647d17d0b158e263a0138af393&type=album",
-  },
-  {
-    name: "Финансовый мониторинг",
-    link: "https://www.gradyent.ru/upload/images/11.jpg",
   },
   {
     name: "Ограничение или блокировка?",
     link: "https://pp.userapi.com/c9833/u790332/-1/x_01f86a93.jpg",
   },
   {
-    name: "Еще один раздел",
+    name: "Как обрабатывать?",
+    link: "https://sun9-87.userapi.com/impg/hDFAfeoG2s_k14k26cZnIdudjuAJyo150cyOBg/mEOmnINr1hs.jpg?size=600x534&quality=96&sign=d1cd5f647d17d0b158e263a0138af393&type=album",
+  },
+  
+  
+  {
+    name: "Реальный кейс №1",
+    link: "https://www.gradyent.ru/upload/images/11.jpg",
+  },
+  
+  {
+    name: "Реальный кейс №2",
     link: "https://pp.userapi.com/c9833/u790332/-1/x_01f86a93.jpg",
   },
   {
-    name: "Еще один раздел",
+    name: "Короткие факты",
     link: "https://pp.userapi.com/c9833/u790332/-1/x_01f86a93.jpg",
   },
   {
