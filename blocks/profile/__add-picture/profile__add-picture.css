@@ -34,7 +34,7 @@
  [data-tooltip]::after {
 content: attr(data-tooltip); /* Выводим текст */
     position: absolute; /* Абсолютное позиционирование */
-    width: 135px; /* Ширина подсказки */
+    min-width: 135px; /* Ширина подсказки */
     left: -2px; top: 0; /* Положение подсказки */
     background: #fddf2e; /* Синий цвет фона */
     color: rgb(0, 0, 0); /* Цвет текста */

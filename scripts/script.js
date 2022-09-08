@@ -128,6 +128,7 @@ function closeSlider() {
   document.querySelectorAll(".slide-icon").forEach((element) => {
     element.classList.remove("active");
   });
+  slideNumber=0;
 }
 
 
@@ -217,6 +218,7 @@ cardNumberOne.querySelector('.card__image').addEventListener("click", function (
 });
 
 cardNumberTwo.querySelector('.card__image').addEventListener("click", function () {
+  slideNumber=2;
   cardNumberThree.classList.remove("card_inactive");
   cardNumberTwo.querySelector('.card__info-like').classList.add('card__info-like_liked');
   document.querySelector(".slide3").classList.add('active');
@@ -238,6 +240,12 @@ nextBtn.addEventListener("click", () => {
   });
 
   slideNumber++;
+  if (slideNumber>0) {
+    prevBtn.classList.remove("button_inactive");
+  }
+  if (slideNumber===(numberOfSlides - 1)) {
+    nextBtn.classList.add('button_inactive')
+  }
 
   if(slideNumber > (numberOfSlides - 1)){
     slideNumber = 0;
@@ -245,6 +253,7 @@ nextBtn.addEventListener("click", () => {
 
   slides[slideNumber].classList.add("active");
   slideIcons[slideNumber].classList.add("active");
+  
 });
 
 //image slider previous button
@@ -258,6 +267,12 @@ prevBtn.addEventListener("click", () => {
 
   slideNumber--;
 
+  if (slideNumber===0) {
+    prevBtn.classList.add('button_inactive')
+  }
+  if (slideNumber===(numberOfSlides - 2)) {
+    nextBtn.classList.remove('button_inactive')
+  }
   if(slideNumber < 0){
     slideNumber = numberOfSlides - 1;
   }

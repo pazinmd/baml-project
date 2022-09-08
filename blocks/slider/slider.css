@@ -64,13 +64,16 @@
   box-shadow: 0 5px 25px rgb(1 1 1 / 5%);
 }
 
+
+
+
 .slider .slide .info h2{
   font-size: 2em;
   font-weight: 800;
 }
 
 .slider .slide .info p{
-  font-size: 1em;
+  font-size: 19px;
   font-weight: 400;
 }
 
@@ -85,6 +88,12 @@
 
 .slider:hover .navigation{
   opacity: 1;
+}
+
+.button_inactive {
+  pointer-events: none;
+  opacity: 0.5;
+  background-color: #CCC;
 }
 
 .prev-btn, .next-btn{
