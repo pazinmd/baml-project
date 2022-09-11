@@ -4,16 +4,13 @@ const initialCards = [
     link: "https://gsl-news.org/data/wp-content/uploads/2022/05/PWNnbhWVzI.jpg",
   },
   {
-    name: "Меры государства",
+    name: "Меры по борьбе",
     link: "https://xn--l1akee.xn----ctbgrqkh1c.xn--p1ai/wp-content/uploads/2019/03/zak.jpg",
   },
-  {
-    name: "Меры со стороны банка",
-    link: "https://static.tildacdn.com/tild3764-3534-4636-b039-316466623831/OTZkLWExZ.jpg",
-  },
+  
   {
     name: "Ограничение или блокировка?",
-    link: "https://pp.userapi.com/c9833/u790332/-1/x_01f86a93.jpg",
+    link: "https://logincasino.com/uploads/gallery/69753/thumbs/o750_400_optim_m_79cde8923bb709a57134f2a20666d84a.jpg",
   },
   {
     name: "Как обрабатывать?",
@@ -23,16 +20,20 @@ const initialCards = [
   
   {
     name: "Реальный кейс №1",
-    link: "https://www.gradyent.ru/upload/images/11.jpg",
+    link: "https://pp.userapi.com/c9833/u790332/-1/x_01f86a93.jpg",
   },
-  
   {
     name: "Реальный кейс №2",
     link: "https://pp.userapi.com/c9833/u790332/-1/x_01f86a93.jpg",
   },
+  
+  {
+    name: "Реальный кейс №3",
+    link: "https://pp.userapi.com/c9833/u790332/-1/x_01f86a93.jpg",
+  },
   {
     name: "Короткие факты",
-    link: "https://pp.userapi.com/c9833/u790332/-1/x_01f86a93.jpg",
+    link: "https://www.thefactsite.com/wp-content/uploads/2019/07/hashtag-fact.png",
   },
   {
     name: "Итоговый тест",
@@ -218,15 +219,81 @@ cardNumberOne.querySelector('.card__image').addEventListener("click", function (
 });
 
 cardNumberTwo.querySelector('.card__image').addEventListener("click", function () {
-  slideNumber=2;
+  slideNumber=1;
   cardNumberThree.classList.remove("card_inactive");
   cardNumberTwo.querySelector('.card__info-like').classList.add('card__info-like_liked');
-  document.querySelector(".slide3").classList.add('active');
-  document.querySelector(".icon3").classList.add('active');
+  document.querySelector(".slide2").classList.add('active');
+  document.querySelector(".icon2").classList.add('active');
   sliderCont.classList.add("slider-container-open");
   slider.classList.add("slider-container-open");
 });
 
+cardNumberThree.querySelector('.card__image').addEventListener("click", function () {
+  slideNumber=5;
+  cardNumberFour.classList.remove("card_inactive");
+  cardNumberThree.querySelector('.card__info-like').classList.add('card__info-like_liked');
+  document.querySelector(".slide6").classList.add('active');
+  document.querySelector(".icon6").classList.add('active');
+  sliderCont.classList.add("slider-container-open");
+  slider.classList.add("slider-container-open");
+});
+
+
+cardNumberFour.querySelector('.card__image').addEventListener("click", function () {
+  slideNumber=6;
+  cardNumberFive.classList.remove("card_inactive");
+  cardNumberFour.querySelector('.card__info-like').classList.add('card__info-like_liked');
+  document.querySelector(".slide7").classList.add('active');
+  document.querySelector(".icon7").classList.add('active');
+  sliderCont.classList.add("slider-container-open");
+  slider.classList.add("slider-container-open");
+});
+
+cardNumberFive.querySelector('.card__image').addEventListener("click", function () {
+  slideNumber=9;
+  cardNumberSix.classList.remove("card_inactive");
+  cardNumberFive.querySelector('.card__info-like').classList.add('card__info-like_liked');
+  document.querySelector(".slide10").classList.add('active');
+  document.querySelector(".icon10").classList.add('active');
+  sliderCont.classList.add("slider-container-open");
+  slider.classList.add("slider-container-open");
+});
+
+cardNumberSix.querySelector('.card__image').addEventListener("click", function () {
+  slideNumber=10;
+  cardNumberSeven.classList.remove("card_inactive");
+  cardNumberSix.querySelector('.card__info-like').classList.add('card__info-like_liked');
+  document.querySelector(".slide11").classList.add('active');
+  document.querySelector(".icon11").classList.add('active');
+  sliderCont.classList.add("slider-container-open");
+  slider.classList.add("slider-container-open");
+});
+
+cardNumberSeven.querySelector('.card__image').addEventListener("click", function () {
+  slideNumber=11;
+  cardNumberEight.classList.remove("card_inactive");
+  cardNumberSeven.querySelector('.card__info-like').classList.add('card__info-like_liked');
+  document.querySelector(".slide12").classList.add('active');
+  document.querySelector(".icon12").classList.add('active');
+  sliderCont.classList.add("slider-container-open");
+  slider.classList.add("slider-container-open");
+});
+
+cardNumberEight.querySelector('.card__image').addEventListener("click", function () {
+  slideNumber=12;
+  cardFinalTest.classList.remove("card_inactive");
+  cardNumberEight.querySelector('.card__info-like').classList.add('card__info-like_liked');
+  document.querySelector(".slide13").classList.add('active');
+  document.querySelector(".icon13").classList.add('active');
+  sliderCont.classList.add("slider-container-open");
+  slider.classList.add("slider-container-open");
+});
+
+cardFinalTest.querySelector('.card__image').addEventListener("click", function () {
+  const quizContainer = document.querySelector(".quiz__container");
+  quizContainer.classList.toggle("slider-container-open");
+  
+});
 
 
 
@@ -238,6 +305,9 @@ nextBtn.addEventListener("click", () => {
   slideIcons.forEach((slideIcon) => {
     slideIcon.classList.remove("active");
   });
+ 
+
+
 
   slideNumber++;
   if (slideNumber>0) {

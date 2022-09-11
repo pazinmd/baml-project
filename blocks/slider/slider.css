@@ -37,7 +37,7 @@
 
 .slider .slide.active{
   clip-path: circle(150% at 0 50%);
-  transition: 2s;
+  transition: 1.5s;
 }
 
 
@@ -215,7 +215,7 @@
 
 .navigation-visibility .slide-icon{
   z-index: 999;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.5);
   width: 20px;
   height: 10px;
   transform: translateY(-50px);
@@ -226,6 +226,7 @@
 
 .navigation-visibility .slide-icon.active{
   background: #4285F4;
+
 }
 
 .slider-container {
