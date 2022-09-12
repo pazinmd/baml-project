@@ -57,6 +57,7 @@ restart_quiz.onclick = ()=>{
 quit_quiz.onclick = ()=>{
     const quizContainer = document.querySelector(".quiz__container");
   quizContainer.classList.toggle("slider-container-open");
+  cardFinalTest.querySelector('.card__info-like').classList.add('card__info-like_liked');
   ; //reload the current window
 }
 const footer = document.querySelector(".footer_quiz");

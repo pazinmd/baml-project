@@ -305,16 +305,48 @@ nextBtn.addEventListener("click", () => {
   slideIcons.forEach((slideIcon) => {
     slideIcon.classList.remove("active");
   });
- 
+
+  if (slideNumber==2) {
+    cardNumberThree.classList.remove("card_inactive");
+    cardNumberTwo.querySelector('.card__info-like').classList.add('card__info-like_liked');
+  }
+
+  if (slideNumber==5) {
+    cardNumberFour.classList.remove("card_inactive");
+    cardNumberThree.querySelector('.card__info-like').classList.add('card__info-like_liked');
+  }
+  
+  if (slideNumber==6) {
+    cardNumberFive.classList.remove("card_inactive");
+    cardNumberFour.querySelector('.card__info-like').classList.add('card__info-like_liked');
+  }
+
+  if (slideNumber==9) {
+    cardNumberSix.classList.remove("card_inactive");
+    cardNumberFive.querySelector('.card__info-like').classList.add('card__info-like_liked');
+  }
+
+  if (slideNumber==10) {
+    cardNumberSeven.classList.remove("card_inactive");
+    cardNumberSix.querySelector('.card__info-like').classList.add('card__info-like_liked');
+
+  }
+
+  if (slideNumber==11) {
+    cardNumberEight.classList.remove("card_inactive");
+    cardNumberSeven.querySelector('.card__info-like').classList.add('card__info-like_liked');
+  }
+
+  if (slideNumber==12) {
+    cardFinalTest.classList.remove("card_inactive");
+    cardNumberEight.querySelector('.card__info-like').classList.add('card__info-like_liked');
+  }
 
 
 
   slideNumber++;
   if (slideNumber>0) {
     prevBtn.classList.remove("button_inactive");
-  }
-  if (slideNumber===(numberOfSlides - 1)) {
-    nextBtn.classList.add('button_inactive')
   }
 
   if(slideNumber > (numberOfSlides - 1)){
@@ -341,8 +373,13 @@ prevBtn.addEventListener("click", () => {
     prevBtn.classList.add('button_inactive')
   }
   if (slideNumber===(numberOfSlides - 2)) {
+    nextBtn.classList.toggle('button_inactive')
+  }
+
+  if (slideNumber<(numberOfSlides - 2)) {
     nextBtn.classList.remove('button_inactive')
   }
+
   if(slideNumber < 0){
     slideNumber = numberOfSlides - 1;
   }
