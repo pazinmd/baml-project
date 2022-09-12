@@ -342,4 +342,15 @@
   .slider .slide .info li{
     margin: 0;
   }
+
+  .navigation-visibility{
+    z-index: 999;
+    
+   bottom: 520px;
+  }
+
+  .navigation-visibility .slide-icon{
+    
+    width: 14px;
+  }
 }
