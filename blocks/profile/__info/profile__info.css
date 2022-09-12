@@ -13,6 +13,7 @@
   .profile__info {
     margin: 26px auto 0 auto;
     justify-content: center;
+    flex-direction: column;
   }
   
 }
