@@ -14,8 +14,8 @@
 
 @media screen and (max-width: 768px) {
   .profile__info-name {
-    max-width: 400px ;
-    font-size: 27px;
+    max-width: 100% ;
+    font-size: 25px;
     line-height: 33px;
     text-align: center;
   }

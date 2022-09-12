@@ -49,3 +49,9 @@ content: attr(data-tooltip); /* Выводим текст */
     top: 3em; /* Положение подсказки */
    
    }
+
+
+   @media screen and (max-width: 768px)  {
+    [data-tooltip]::after {
+    min-width: 96%;
+   }}
