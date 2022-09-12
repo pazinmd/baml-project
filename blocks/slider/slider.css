@@ -109,7 +109,7 @@
 }
 
 .slider .slide .info {
-  font-family: 'Pragmatica', Arial, Helvetica, sans-serif;
+  font-family: 'Pragmatica','San Francisco', Arial, Helvetica, sans-serif;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
     -ms-text-size-adjust: 100%;
@@ -129,6 +129,7 @@
 }
 
 .slider .slide .info p{
+
   margin: 10px 0 10px 0px ;
   font-size: 19px;
   font-weight: 400;
@@ -316,6 +317,7 @@
 }
 
 @media screen and (max-width: 768px) {
+  
   
   .slider .slide .info h2{
     margin-top: 0;
