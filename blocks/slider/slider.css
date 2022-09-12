@@ -344,9 +344,10 @@
   }
 
   .navigation-visibility{
+    bottom: 40%;
     z-index: 999;
+    position: relative;
     
-   bottom: 520px;
   }
 
   .navigation-visibility .slide-icon{
