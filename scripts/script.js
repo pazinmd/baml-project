@@ -206,6 +206,7 @@ const cardNumberSix = document.querySelector(".number_6");
 const cardNumberSeven = document.querySelector(".number_7");
 const cardNumberEight = document.querySelector(".number_8");
 const cardFinalTest = document.querySelector(".number_9");
+const quizContainer = document.querySelector(".quiz__container");
 console.log(cardFinalTest);
 
 // cardNumberOne.querySelector('.card__image').addEventListener("click",openCard);
@@ -290,7 +291,7 @@ cardNumberEight.querySelector('.card__image').addEventListener("click", function
 });
 
 cardFinalTest.querySelector('.card__image').addEventListener("click", function () {
-  const quizContainer = document.querySelector(".quiz__container");
+  
   quizContainer.classList.toggle("slider-container-open");
   
 });
@@ -388,4 +389,10 @@ prevBtn.addEventListener("click", () => {
   slideIcons[slideNumber].classList.add("active");
 });
 
+const slideStartBtn = document.querySelector(".slide_start-button");
 
+slideStartBtn.onclick = ()=>{
+    closeSlider();
+    quizContainer.classList.toggle("slider-container-open");
+    info_box.classList.add("activeInfo"); //show info box
+}
