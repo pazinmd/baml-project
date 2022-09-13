@@ -391,6 +391,7 @@
 @media screen and (max-width: 600px) {
   .slider .slide .info h2 {
     font-size: 1.8em;
+    /* line-height: ; */
 
   }
   .navigation-visibility {
@@ -400,13 +401,22 @@
 
   }
 
+
+
   .slider .slide .info p {
-    font-size: 18px;
-    line-height: 20px;
-    letter-spacing:-1px;
+    font-size: 20px;
+    line-height: 22px;
+    letter-spacing:0;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    letter-spacing: -1px;
 
   }
-
+  .slider .slide .slide__long p {
+    font-size: 18px;
+      line-height: 20px;
+      letter-spacing:-1px;
+  }
 }
 
 
