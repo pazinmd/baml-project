@@ -17,3 +17,7 @@
   transform: translate(0,-10px);
   transform: scale(1.05,1.05);
 }
+
+.rasev__link {
+  text-decoration: none;
+}
